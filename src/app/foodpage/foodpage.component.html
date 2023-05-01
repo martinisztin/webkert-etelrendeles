@@ -1,0 +1,28 @@
+<app-not-found [visible]="!food" notFoundMessage="Az étel nem található!"></app-not-found>
+<div *ngIf="food" class="container">
+    <img [src]="food.imageUrl" [alt]="food.name">
+</div>
+<div class="details">
+    <div class="header">
+        <span class="name">
+            {{food.name}}
+        </span>
+        <span class="favorite {{food.favorite ? '' : 'not'}}">
+            ♥
+        </span>
+    </div>
+    <div class="tags">
+        <app-tags [foodPageTags]="food.tags" justifyContent="start"></app-tags>
+    </div>
+    <div class="cook-time">
+        <span>
+            Elkészítési idő: <strong>{{food.cookTime}} perc</strong>
+        </span>
+    </div>
+    <div class="price">
+        <span>
+            {{food.price}} Ft
+        </span>
+    </div>
+    <button (click)="addToCart()" >Kosárba</button>
+</div>
