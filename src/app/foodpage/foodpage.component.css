@@ -33,9 +33,10 @@ img {
 .details .name {
     font-size:2rem;
     font-weight: bold;
+    margin-bottom: 1rem;
 }
 .details .favorite {
-    color: #e72929;
+    color: #512DA8;
     font-size: 2.5rem;
 }
 .details .favorite.not {
@@ -51,7 +52,7 @@ img {
 }
 .details .price {
     font-size: 1.8rem;
-    margin: 1rem 1rem 1rem 0;
+    margin: 1rem 1rem 2rem;
 }
 .details .price::before {
     content: "Ár: ";
@@ -59,7 +60,7 @@ img {
 }
 .details button {
     color:white;
-    background-color: #e72929;
+    background-color: #673AB7;
     border: none;
     font-size: 1.2rem;
     padding: 1rem;

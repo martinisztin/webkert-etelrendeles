@@ -1,9 +1,8 @@
 export class Food {
-    id!: number;
+    id!: string;
     price!: number;
     name!: string;
-    favorite:boolean = false;
     tags?:string[];
-    imageUrl!:string;
-    cookTime!:string;
+    image!:string;
+    cooktime!:string;
 }

@@ -1,30 +1,30 @@
 <app-search></app-search>
-<app-tags></app-tags>
-<app-not-found
-[visible]="!foods || !foods.length"
-resetLinkText="Ugrás a főoldalra!">
+<app-tags justifyContent="center"></app-tags>
+<app-not-found [visible]="!foods || !foods.length" resetLinkText="Ugrás a főoldalra!">
 </app-not-found>
-<ul>
-    <li *ngFor="let food of foods">
+<div class="container">
+    <mat-card *ngFor="let food of foods">
         <a routerLink="/food/{{food.id}}">
-            <img src="{{food.imageUrl}}" alt="étel képek">
-            <div class="content">
-                <div class="name">
-                    {{food.name}}
-                </div>
-                <span class="favorite {{food.favorite ? '' : 'not'}}">♥</span>
-                <br>
-                <div class="product-item-footer">
-                    <div class="cook-time">
-                        <span>Elkészítési idő:</span>
-                        {{food.cookTime}} perc
+            <mat-card-header>
+                <img mat-card-lg-image src="{{food.image}}" alt="étel képek">
+            </mat-card-header>
+            <mat-card-content>
+                <div class="content">
+                    <div class="name">
+                        {{food.name}}
+                    </div>
+                    <br>
+                    <div class="product-item-footer">
+                        <div class="cook-time">
+                            <span>Elkészítési idő:</span>
+                            {{food.cooktime}} perc
+                        </div>
+                    </div>
+                    <div class="price">
+                        {{food.price}} Ft
                     </div>
                 </div>
-                <div class="price">
-                    {{food.price}} Ft
-                </div>
-            </div>
-            
+            </mat-card-content>
         </a>
-    </li>
-</ul>
+    </mat-card>
+</div>

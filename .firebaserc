@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "webkert-2023-aadeb": {
+      "hosting": {
+        "Etelrendeles": [
+          "webkert-2023-etelrendeles"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "webkert-2023-aadeb"
+  }
+}

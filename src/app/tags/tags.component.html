@@ -1,6 +1,16 @@
-<div *ngIf="tags" [style.justifyContent]="justifyContent">
+<!--<div *ngIf="tags" [style.justifyContent]="justifyContent">
     <a *ngFor="let tag of tags" routerLink="/tag/{{tag.name}}"> {{tag.name}}({{tag.count}})</a>
 </div>
 <div *ngIf="foodPageTags" [style.justifyContent]="justifyContent">
     <a *ngFor="let tagname of foodPageTags" routerLink="/tag/{{tagname}}">{{tagname}}</a>
 </div>
+-->
+<div [style.justifyContent]="justifyContent">
+    <mat-chip-listbox *ngIf="tags" [style.justifyContent]="justifyContent">
+        <mat-chip readonly="true" *ngFor="let tag of tags" ><a routerLink="/tag/{{tag.name}}">{{tag.name}}({{tag.count}})</a></mat-chip>
+    </mat-chip-listbox>
+</div>
+<mat-chip-listbox *ngIf="foodPageTags">
+    <mat-chip *ngFor="let tagname of foodPageTags" routerLink="/tag/{{tagname}}">{{tagname}}</mat-chip>
+</mat-chip-listbox>
+

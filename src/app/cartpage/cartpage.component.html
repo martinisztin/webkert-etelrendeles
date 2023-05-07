@@ -4,7 +4,7 @@
     <ul>
         <li *ngFor="let cartItem of cart.items">
             <div>
-                <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name">
+                <img [src]="cartItem.food.image" [alt]="cartItem.food.name">
             </div>
             <div>
                 <a routerLink="/food/{{cartItem.food.id}}">
@@ -35,6 +35,6 @@
             {{cart.totalPrice}} Ft
         </div>
 
-        <a routerLink="/checkout">Fizetés</a>
+        <button (click)="onCheckout()" routerLink="/">Fizetés</button>
     </div>
 </div>

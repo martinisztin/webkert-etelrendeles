@@ -1,14 +1,11 @@
 <app-not-found [visible]="!food" notFoundMessage="Az étel nem található!"></app-not-found>
 <div *ngIf="food" class="container">
-    <img [src]="food.imageUrl" [alt]="food.name">
+    <img [src]="image" [alt]="food.name">
 </div>
 <div class="details">
     <div class="header">
         <span class="name">
             {{food.name}}
-        </span>
-        <span class="favorite {{food.favorite ? '' : 'not'}}">
-            ♥
         </span>
     </div>
     <div class="tags">
@@ -16,7 +13,7 @@
     </div>
     <div class="cook-time">
         <span>
-            Elkészítési idő: <strong>{{food.cookTime}} perc</strong>
+            Elkészítési idő: <strong>{{food.cooktime}} perc</strong>
         </span>
     </div>
     <div class="price">

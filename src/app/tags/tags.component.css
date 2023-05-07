@@ -1,8 +1,8 @@
-div {
+div, mat-chip-listbox {
     display: flex;
     flex-wrap: wrap;
 }
-div a {
+mat-chip-listbox mat-chip-option {
     background-color: whitesmoke;
     padding: .3rem 1rem;
     margin: .2rem .15rem;

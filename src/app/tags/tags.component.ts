@@ -18,6 +18,8 @@ export class TagsComponent {
 
   ngOnInit() : void {
     if(!this.foodPageTags)
-    this.tags = this.fs.getAllTag();
+    this.fs.getAllTag().subscribe(tags => {
+      this.tags = tags;
+    });
   }
 }

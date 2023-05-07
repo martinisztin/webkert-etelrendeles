@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  @Output() onCloseSidenav: EventEmitter<boolean> = new EventEmitter();
+  @Input() loggedInUser?: firebase.default.User | null;
+  @Output() onLogout: EventEmitter<boolean> = new EventEmitter();
 
+  close(logout?: boolean) {
+    this.onCloseSidenav.emit(true);
+    if(logout === true) { 
+      this.onLogout.emit(logout);
+    }
+  }
 }

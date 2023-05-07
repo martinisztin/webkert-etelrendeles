@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Cart } from '../shared/models/cart';
-import { Food } from '../shared/models/food';
-import { CartItem } from '../shared/models/cartitem';
+import { Cart } from '../../shared/models/cart';
+import { Food } from '../../shared/models/food';
+import { CartItem } from '../../shared/models/cartitem';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Order } from '../../shared/models/order';
 
 @Injectable({
   providedIn: 'root'
@@ -11,23 +13,23 @@ export class CartService {
   private cart : Cart = this.getCartFromLocalStorage();
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
   
-  constructor() { }
+  constructor(private afs: AngularFirestore) { }
 
   addToCart(food:Food) : void {
     let cartItem = this.cart.items.find(item => item.food.id === food.id)
     if(cartItem) {
-      this.changeQuantity(food.id, cartItem.quantity + 1)
+      this.changeQuantity(cartItem.quantity + 1, food.id)
       return;
     }
 
     this.cart.items.push(new CartItem(food));
     this.setCartToLocalStorage();
   }
-  removeFromCart(foodId:number): void {
+  removeFromCart(foodId:string): void {
     this.cart.items = this.cart.items.filter(item => item.food.id != foodId)
     this.setCartToLocalStorage();
   }
-  changeQuantity(quantity:number, foodId:number) {
+  changeQuantity(quantity:number, foodId:string) {
     let cartItem = this.cart.items.find(item => item.food.id === foodId);
     if(!cartItem) return;
     cartItem.quantity = quantity;

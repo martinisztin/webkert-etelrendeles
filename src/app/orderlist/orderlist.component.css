@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 2rem;
+}
+mat-card {
+    margin: 1rem;
+}
+.container mat-card a {
+    height: 20rem;
+    width: 20rem;
+
+    margin: 0.5rem;
+    display:flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: #512DA8;
+}
+
+mat-card img {
+    object-fit: cover;
+    width:100%;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+mat-card a:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+.content {
+    padding: .5rem 1rem;
+    position: relative;
+}
+.favorite {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    font-size: 1.2rem;
+}
+.favorite.not {
+    color:black;
+}
+.product-item-footer {
+    display:flex;
+    justify-content: space-between;
+    align-items:end
+}
+.cook-time {
+    border-radius: 2rem;
+    background-color: whitesmoke;
+    color:gray;
+    font-size:.7rem;
+    margin-right:.3rem;
+}
+.price {
+    text-align:right;
+    color:black;
+}
+
+.cig {
+    width:100%;
+    padding:15px;
+    display: flex;
+}
